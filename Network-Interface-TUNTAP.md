@@ -20,5 +20,8 @@ A simple framing protocol accessible at the TAP layer may need to be implemented
 #### Questions
 
 * Do we need a TAP interface or can we skip it?
+  * TAP interface is NOT needed and not useful per current understanding. It is best to implement a Layer 2 (datalink) either on Faraday hardware or in python.
 * Can Faraday communicate between two units with only a byte buffer and relying on higher level programs to control flow of data?
+  * A layer 2 is needed and Faraday would be responsible for fragmenting and reassembling packets from the Layer 3 TUN network adapter.
 * How could we plan for Faraday to implement (Layer 2?) functionality in the future that allows TDMA(time division multiple access) or FHSS (frequency hop spread spectrum) using the CC1101 features?
+  * Layer 2 needs to be implemented on Faraday or in python (weird, keep on Faraday for now). We need to create a mechanism/method for updating device settings.
